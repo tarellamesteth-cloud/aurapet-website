@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioThane® Pro Leash | AuraPet Supply - B2B Manufacturing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #046bd2;
+            --primary-dark: #0356a8;
+            --text-main: #1e293b;
+            --bg-soft: #f8fafc;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); top: 0px !important; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        
+        /* Language Floating Box */
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        .skiptranslate iframe { display: none !important; }
+        
+        .lang-side-box {
+            position: fixed;
+            right: 0;
+            top: 35%;
+            background: var(--primary);
+            color: white;
+            padding: 20px 12px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            border-radius: 12px 0 0 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            cursor: pointer;
+            z-index: 9999;
+            transition: 0.3s;
+            box-shadow: -5px 0 20px rgba(4, 107, 210, 0.4);
+            font-size: 13px;
+        }
+        
+        .lang-panel {
+            position: fixed;
+            right: -550px;
+            top: 10%;
+            background: white;
+            width: 480px;
+            max-height: 80vh;
+            box-shadow: -15px 0 40px rgba(0,0,0,0.15);
+            z-index: 10000;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: 40px;
+            border-radius: 24px 0 0 24px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            overflow-y: auto;
+        }
+        
+        .lang-panel.active { right: 0; }
+        .lang-btn {
+            padding: 12px 20px;
+            border: 1px solid #f1f5f9;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            transition: 0.3s;
+            text-align: left;
+            background: #f8fafc;
+        }
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .nav-sticky { position: sticky; top: 0; z-index: 1000; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .btn-primary { background: var(--primary); color: white; padding: 14px 36px; border-radius: 4px; font-weight: 600; transition: 0.3s; display: inline-block; width: 100%; text-align: center; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        
+        .spec-table th { background: #f8fafc; text-align: left; padding: 20px; border-bottom: 2px solid #e2e8f0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; }
+        .spec-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+        .feature-icon-box { border: 1px solid #f1f5f9; padding: 24px; border-radius: 12px; text-align: center; background: white; transition: 0.3s; }
+        .feature-icon-box:hover { border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+
+        /* WhatsApp Drifter */
+        @keyframes drift {
+            0%   { bottom: 30px; right: 30px; }
+            50%  { bottom: 100px; right: 150px; }
+            100% { bottom: 30px; right: 30px; }
+        }
+        .whatsapp-float {
+            position: fixed;
+            background: #25d366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            animation: drift 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Language Side Box -->
+    <div class="lang-side-box" id="lang-trigger">LANGUAGE</div>
+    <div class="lang-panel" id="lang-panel">
+        <div class="col-span-2 flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-slate-900 italic">Global Access</h3>
+            <button id="close-lang" class="text-slate-400 hover:text-slate-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <button onclick="changeLanguage('en')" class="lang-btn">🇺🇸 English</button>
+        <button onclick="changeLanguage('zh-CN')" class="lang-btn">🇨🇳 简体中文</button>
+        <button onclick="changeLanguage('es')" class="lang-btn">🇪🇸 Español</button>
+        <button onclick="changeLanguage('fr')" class="lang-btn">🇫🇷 Français</button>
+        <button onclick="changeLanguage('de')" class="lang-btn">🇩🇪 Deutsch</button>
+        <button onclick="changeLanguage('ja')" class="lang-btn">🇯🇵 日本語</button>
+        <button onclick="changeLanguage('ko')" class="lang-btn">🇰🇷 한국어</button>
+        <button onclick="changeLanguage('ar')" class="lang-btn">🇸🇦 العربية</button>
+        <button onclick="changeLanguage('pt')" class="lang-btn">🇵🇹 Português</button>
+        <button onclick="changeLanguage('ru')" class="lang-btn">🇷🇺 Русский</button>
+        <button onclick="changeLanguage('it')" class="lang-btn">🇮🇹 Italiano</button>
+        <button onclick="changeLanguage('nl')" class="lang-btn">🇳🇱 Nederlands</button>
+        <button onclick="changeLanguage('tr')" class="lang-btn">🇹🇷 Türkçe</button>
+        <button onclick="changeLanguage('vi')" class="lang-btn">🇻🇳 Tiếng Việt</button>
+        <button onclick="changeLanguage('th')" class="lang-btn">🇹🇭 ไทย</button>
+        <button onclick="changeLanguage('id')" class="lang-btn">🇮🇩 Indonesia</button>
+        <button onclick="changeLanguage('hi')" class="lang-btn">🇮🇳 हिन्दी</button>
+        <button onclick="changeLanguage('pl')" class="lang-btn">🇵🇱 Polski</button>
+        <button onclick="changeLanguage('sv')" class="lang-btn">🇸🇪 Svenska</button>
+        <button onclick="changeLanguage('el')" class="lang-btn">🇬🇷 Ελληνικά</button>
+    </div>
+
+    <!-- Hidden Google Translate Container -->
+    <div id="google_translate_element"></div>
+
+    <!-- WhatsApp Drifter -->
+    <a href="https://wa.me/8613800000000" class="whatsapp-float" target="_blank">
+        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav-sticky">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-1">
+                <span class="text-2xl font-black tracking-tighter text-slate-900 italic">AURAPET<span class="text-blue-600">.</span></span>
+            </a>
+            <div class="hidden lg:flex space-x-10">
+                <a href="index.html" class="nav-link text-slate-700 hover:text-blue-600 transition">Home</a>
+                <a href="collection.html" class="nav-link text-slate-700 hover:text-blue-600 transition">Collection</a>
+                <a href="process.html" class="nav-link text-slate-700 hover:text-blue-600 transition">Process</a>
+                <a href="support.html" class="nav-link text-slate-700 hover:text-blue-600 transition">Support</a>
+                <a href="blog.html" class="nav-link text-slate-700 hover:text-blue-600 transition">Insights</a>
+            </div>
+            <a href="support.html#contact" class="btn-primary text-sm uppercase tracking-wider">Inquiry Now</a>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <section class="py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-12 gap-3">
+                <a href="index.html" class="hover:text-blue-600">Home</a>
+                <span>/</span>
+                <a href="collection.html" class="hover:text-blue-600">Collection</a>
+                <span>/</span>
+                <span class="text-slate-900">BioThane® Pro Leash</span>
+            </nav>
+
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="space-y-6">
+                    <div class="aspect-square bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
+                        <img src="https://images.unsplash.com/photo-1591768575198-88dac53fbd0a?auto=format&fit=crop&q=80&w=1200" alt="BioThane Leash" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+
+                <div class="bg-white p-12 lg:p-16 rounded-3xl border border-slate-100 shadow-sm self-start">
+                    <span class="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Waterproof Adventure Series</span>
+                    <h1 class="text-5xl font-bold text-slate-900 mb-8 leading-tight">BioThane® Pro Leash</h1>
+                    <p class="text-lg text-slate-500 mb-12 leading-relaxed">Our flagship waterproof leash, engineered for the most demanding pet brands. Utilizing genuine high-density TPU webbing with a tactile finish that mimics natural leather while offering 100% waterproof and odor-proof performance.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-12">
+                        <div class="bg-slate-50 p-6 rounded-2xl">
+                            <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Wholesale MOQ</span>
+                            <span class="text-xl font-bold text-slate-900">20 Pieces</span>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl">
+                            <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Production Time</span>
+                            <span class="text-xl font-bold text-slate-900">15-20 Days</span>
+                        </div>
+                    </div>
+
+                    <a href="support.html#contact" class="btn-primary py-5 text-lg mb-8">Request Bulk Quote</a>
+                    <p class="text-center text-xs text-slate-400 uppercase tracking-widest font-bold">Expect a response within 12 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs & Features -->
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+            <div class="feature-icon-box">
+                <div class="text-blue-600 mb-6 flex justify-center">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                </div>
+                <h4 class="font-bold text-xl mb-3">Military Grade</h4>
+                <p class="text-slate-500 text-sm">Tensile strength tested up to 1000lbs. Built for the toughest outdoor adventures.</p>
+            </div>
+            <div class="feature-icon-box">
+                <div class="text-blue-600 mb-6 flex justify-center">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <h4 class="font-bold text-xl mb-3">UV Resistant</h4>
+                <p class="text-slate-500 text-sm">Fade-resistant coating ensures vibrant colors even after years of direct sun exposure.</p>
+            </div>
+            <div class="feature-icon-box">
+                <div class="text-blue-600 mb-6 flex justify-center">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h4 class="font-bold text-xl mb-3">Non-Toxic</h4>
+                <p class="text-slate-500 text-sm">REACH and RoHS certified. Safe for skin contact and chew-resistant durability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table -->
+    <section class="py-24 px-6 bg-slate-50">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-slate-900 mb-12 text-center">Technical Specifications</h3>
+            <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm">
+                <table class="w-full spec-table">
+                    <thead><tr><th>Attribute</th><th>Detailed Specification</th></tr></thead>
+                    <tbody>
+                        <tr><td>Material Core</td><td>High-Density Polyester Webbing</td></tr>
+                        <tr><td>Coating</td><td>Premium Matte TPU (Soft-Touch Bio-Mimic)</td></tr>
+                        <tr><td>Hardware Material</td><td>Rust-Proof 304 Stainless Steel</td></tr>
+                        <tr><td>Width Options</td><td>15mm / 20mm / 25mm</td></tr>
+                        <tr><td>Tensile Strength</td><td>450kg (Tested)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-16 mb-20">
+            <div>
+                <a href="index.html" class="flex items-center gap-1 mb-8">
+                    <span class="text-2xl font-black tracking-tighter text-slate-900 italic">AURAPET<span class="text-blue-600">.</span></span>
+                </a>
+                <p class="text-slate-400 text-sm">Global leader in premium pet gear manufacturing.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-8 uppercase tracking-widest text-xs">Collection</h5>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="collection.html" class="hover:text-blue-600">BioThane® Collars</a></li>
+                    <li><a href="collection.html" class="hover:text-blue-600">Smart Interactive Toys</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-8 uppercase tracking-widest text-xs">Resources</h5>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="process.html" class="hover:text-blue-600">Manufacturing Process</a></li>
+                    <li><a href="support.html" class="hover:text-blue-600">B2B Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-slate-900 mb-8 uppercase tracking-widest text-xs">Contact</h5>
+                <p class="text-sm text-slate-500 mb-4">📧 info@aurapetsupply.net</p>
+                <p class="text-sm text-slate-500">📞 +86 138 0000 0000</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 border-t border-slate-100 pt-12 text-center text-xs text-slate-400 font-medium uppercase tracking-[0.2em]">
+            © 2026 AuraPet Manufacturing Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+        const langTrigger = document.getElementById('lang-trigger');
+        const langPanel = document.getElementById('lang-panel');
+        const closeLang = document.getElementById('close-lang');
+        langTrigger.addEventListener('mouseenter', () => langPanel.classList.add('active'));
+        langPanel.addEventListener('mouseleave', () => langPanel.classList.remove('active'));
+        closeLang.addEventListener('click', () => langPanel.classList.remove('active'));
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,zh-CN,es,fr,de,ja,ko,ar,pt,ru,it,nl,tr,vi,th,id,hi,pl,sv,el',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        
+        function changeLanguage(langCode) {
+            var expireDate = new Date();
+            expireDate.setTime(expireDate.getTime() + (365 * 24 * 60 * 60 * 1000));
+            document.cookie = "googtrans=/en/" + langCode + "; expires=" + expireDate.toUTCString() + "; path=/";
+            var selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                selectField.value = langCode;
+                selectField.dispatchEvent(new Event('change'));
+            }
+            langPanel.innerHTML = '<div class="col-span-2 text-center py-20"><div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-600 mb-4"></div><p class="text-blue-600 font-bold uppercase tracking-widest text-sm">Applying Translation...</p></div>';
+            setTimeout(() => { location.reload(); }, 500);
+        }
+
+        (function() {
+            var gt = document.createElement('script');
+            gt.type = 'text/javascript'; gt.async = true;
+            gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gt, s);
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+node_modules/
+*.xlsx
+*.md
+*.js
+package.json
+package-lock.json
+aurapet-website/
